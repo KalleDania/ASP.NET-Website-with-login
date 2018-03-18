@@ -27,7 +27,7 @@ namespace _18Marts.Controllers
             return View();
         }
 
-        public IActionResult Details(int id) // Uuuhuuuuuh baby!dfgasd
+        public IActionResult Details(int id) // Uuuhuuuuuh baby!dfgasdk
         {
             var model = videos.Get(id);
 
