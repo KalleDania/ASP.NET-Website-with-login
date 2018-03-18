@@ -63,36 +63,13 @@ namespace _18Marts.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl = "")
         {
-            //var model = new LoginViewModel { ReturnUrl = returnUrl };
-            //return View(model);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid) return View(model);
-
-            var result = await _signInManager.PasswordSignInAsync(
-                model.Username, model.Password, model.RememberMe, false);
-
-            SignedInUser = model.Username;
-
-            if (result.Succeeded)
-            {
-                if (!string.IsNullOrEmpty(model.ReturnUrl) &&
-                    Url.IsLocalUrl(model.ReturnUrl))
-                {
-                    return Redirect(model.ReturnUrl);
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-            }
-
-            ModelState.AddModelError("", "Login failed");
-            return View(model);
+            return RedirectToAction("Index");
         }
     }
 }
