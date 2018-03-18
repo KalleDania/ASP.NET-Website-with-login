@@ -101,31 +101,38 @@ namespace _18Marts.Controllers
             return View();
         }
 
+        // FJERN AALLOW ANON FRA LLE HERUNDER FOR AT FÅ LOGIN PÅ IGEN
+        [AllowAnonymous]
         public IActionResult CV()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Skills()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult MyWork()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Grades()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Future()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Private()
         {
             if (AccountController.SignedInUser == "Admin")
