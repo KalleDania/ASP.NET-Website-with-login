@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    @*<meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
     <environment names="Development">
@@ -17,7 +17,7 @@
               asp-fallback-test-class="sr-only"
               asp-fallback-test-property="position"
               asp-fallback-test-value="absolute" />
-    </environment>*@
+    </environment>
 
 </head>
 
@@ -41,9 +41,9 @@
         </center>
     </nav>
     <br /><br /><br />
-    <nav>
+    @*<nav>
         @await Html.PartialAsync("_LoginLinks")
-    </nav>
+    </nav>*@
 
 
     <div>
