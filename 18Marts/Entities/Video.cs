@@ -1,5 +1,4 @@
-﻿using Eksempel_1.ViewModels;
-using Eksempel_1.Models;
+﻿using Eksempel_1.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace Eksempel_1.Entities
