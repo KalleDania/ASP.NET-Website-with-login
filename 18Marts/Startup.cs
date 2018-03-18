@@ -35,10 +35,10 @@ namespace _18Marts
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true);
 
-            if (_env.IsDevelopment())
-            {
-                builder.AddUserSecrets<Startup>();
-            }
+            //if (_env.IsDevelopment())
+            //{
+            //    builder.AddUserSecrets<Startup>();
+            //}
 
             Configuration = builder.Build();
         }
