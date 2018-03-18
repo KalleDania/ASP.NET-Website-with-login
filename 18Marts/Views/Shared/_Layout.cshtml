@@ -11,12 +11,7 @@
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet"
-              href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/
-              css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only"
-              asp-fallback-test-property="position"
-              asp-fallback-test-value="absolute" />
+              href="~/lib/bootstrap/dist/css/bootstrap.css" />
     </environment>
 
 </head>
@@ -41,16 +36,16 @@
         </center>
     </nav>
     <br /><br /><br />
-    <nav>
+    @*<nav>
         @await Html.PartialAsync("_LoginLinks")
-    </nav>
+    </nav>*@
 
 
     <div>
         @RenderBody()
     </div>
 
-    <environment names="Development">
+    @*<environment names="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
             <script src="~/lib/jquery-validation/dist/jquery.validate.js">
             </script>
@@ -75,7 +70,7 @@
                     asp-fallback-test="window.jQuery && window.jQuery.validator
                 && window.jQuery.validator.unobtrusive">
             </script>
-        </environment>
+        </environment>*@
 
 </body>
 </html>
