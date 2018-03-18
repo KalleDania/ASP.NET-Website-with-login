@@ -63,8 +63,9 @@ namespace _18Marts.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl = "")
         {
-            var model = new LoginViewModel { ReturnUrl = returnUrl };
-            return View(model);
+            //var model = new LoginViewModel { ReturnUrl = returnUrl };
+            //return View(model);
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
