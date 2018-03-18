@@ -3,6 +3,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>21dd4b7f-4b3b-4bb8-a20d-d24d2f742463</UserSecretsId>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="ViewModels\HomeViewModel.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />

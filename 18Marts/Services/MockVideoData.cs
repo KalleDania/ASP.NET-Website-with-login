@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using _18Marts.Entities;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-using Eksempel_1.Entities;
-using Eksempel_1.Models;
+using System.Threading.Tasks;
 
-namespace Eksempel_1.Services
+namespace _18Marts.Services
 {
     public class MockVideoData : IVideoData
     {
@@ -13,9 +14,9 @@ namespace Eksempel_1.Services
         {
             videos = new List<Video>
             {
-               new Video { Id = 1, Genre = Models.Genres.Comedy, Title = "Shreck"},
-               new Video { Id = 2,  Genre = Models.Genres.Horror, Title = "Despicable me" },
-               new Video { Id = 3,  Genre = Models.Genres.Romance, Title = "Megamind" }
+               new Video { Id = 1, Genre = Genres.Comedy, Title = "Shreck"},
+               new Video { Id = 2,  Genre = Genres.Horror, Title = "Despicable me" },
+               new Video { Id = 3,  Genre = Genres.Romance, Title = "Megamind" }
             };
         }
 

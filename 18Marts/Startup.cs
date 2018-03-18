@@ -18,9 +18,9 @@ using Microsoft.AspNetCore.Identity;  // login
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Eksempel_1.Services;
-using Eksempel_1.Data;
-using Eksempel_1.Entities;
+using _18Marts.Entities;
+using _18Marts.Data;
+using _18Marts.Services;
 
 namespace _18Marts
 {

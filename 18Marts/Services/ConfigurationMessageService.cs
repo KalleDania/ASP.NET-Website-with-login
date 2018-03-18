@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Eksempel_1.Services
+namespace _18Marts.Services
 {
     public class ConfigurationMessageService : IMessageService
     {

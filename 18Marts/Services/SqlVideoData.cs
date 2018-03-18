@@ -1,11 +1,11 @@
-﻿using Eksempel_1.Data;
-using Eksempel_1.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _18Marts.Data;
+using _18Marts.Entities;
 
-namespace Eksempel_1.Services
+namespace _18Marts.Services
 {
     public class SqlVideoData : IVideoData
     {

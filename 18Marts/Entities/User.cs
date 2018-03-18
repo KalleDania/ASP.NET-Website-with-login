@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
-namespace Eksempel_1.Entities
+namespace _18Marts.Entities
 {
     public class User : IdentityUser
     {

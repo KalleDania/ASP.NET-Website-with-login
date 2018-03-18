@@ -1,7 +1,10 @@
-﻿using Eksempel_1.Entities;
+﻿using _18Marts.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Eksempel_1.Services
+namespace _18Marts.Services
 {
     public interface IVideoData
     {

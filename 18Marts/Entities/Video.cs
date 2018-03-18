@@ -1,7 +1,10 @@
-﻿using Eksempel_1.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Eksempel_1.Entities
+namespace _18Marts.Entities
 {
 
     public class Video

@@ -1,12 +1,12 @@
-﻿using Eksempel_1.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _18Marts.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-namespace Eksempel_1.Data
+namespace _18Marts.Data
 {
     public class VideoDbContext : IdentityDbContext<User>
     {
@@ -14,7 +14,7 @@ namespace Eksempel_1.Data
 
         public VideoDbContext(DbContextOptions<VideoDbContext> _options) : base(_options)
         {
-            
+
         }
 
         protected override void OnModelCreating(ModelBuilder _builder)
