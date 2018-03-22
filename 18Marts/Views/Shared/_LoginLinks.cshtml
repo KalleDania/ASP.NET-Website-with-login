@@ -8,8 +8,8 @@
     {
         // Signed in
         <form method="post" asp-controller="Account" asp-action="Logout">
-            <input type="" value="" class="navbar-btn btn btn-danger" />
-            @User.Identity.Name
+            @*<input type="submit" value="Logout" class="navbar-btn btn btn-danger" />
+            @User.Identity.Name*@
         </form>
     }
 
@@ -17,8 +17,8 @@
     {
         // Not singed in
         <form method="post" asp-controller="Account" asp-action="Login">
-            @User.Identity.Name
-            <input type="" value="" class="navbar-btn btn btn-danger" />
+            @*@User.Identity.Name
+            <input type="submit" value="Login" class="navbar-btn btn btn-danger" />*@
         </form>
 
 
