@@ -1,7 +1,29 @@
-﻿
+﻿@*@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager*@
+
 
 <div>
- 
+    @*@if (SignInManager.IsSignedIn(User))
+    {*@
+        // Signed in
+        <form method="post" asp-controller="Account" asp-action="Logout">
+            <input type="submit" value="Logout" class="navbar-btn btn btn-danger" />
+            @User.Identity.Name
+        </form>
+    @*  *@}
+
+    else
+    {
+        // Not singed in
+        <form method="post" asp-controller="Account" asp-action="Login">
+            @User.Identity.Name
+            <input type="submit" value="Login" class="navbar-btn btn btn-danger" />
+        </form>
+
+
+        @*<a asp-controller="Account" asp-action="Register" class="btn btn-xs btn-default navbar-btn">Register</a> uncomment den her og brug denne knap hvis jeg skal lave flere Users*@
+    }
 </div>
 
 
