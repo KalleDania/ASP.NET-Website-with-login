@@ -12,7 +12,7 @@ namespace _18Marts.Controllers
     public class AccountController : Controller
     {
         private UserManager<User> _userManager;
-        private SignInManager<User> _signInManager;
+        //private SignInManager<User> _signInManager;
 
         public static string SignedInUser;
 
