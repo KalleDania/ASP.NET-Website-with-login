@@ -12,14 +12,14 @@ namespace _18Marts.Controllers
     public class AccountController : Controller
     {
         private UserManager<User> _userManager;
-        private SignInManager<User> _signInManager;
+        //private SignInManager<User> _signInManager;
 
         public static string SignedInUser;
 
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
+            //_signInManager = signInManager;
         }
 
         [HttpGet]
@@ -39,7 +39,7 @@ namespace _18Marts.Controllers
 
             if (result.Succeeded)
             {
-                await _signInManager.SignInAsync(user, false);
+                //await _signInManager.SignInAsync(user, false);
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -56,7 +56,7 @@ namespace _18Marts.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
+            //await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
 
@@ -73,23 +73,23 @@ namespace _18Marts.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var result = await _signInManager.PasswordSignInAsync(
-                model.Username, model.Password, model.RememberMe, false);
+            //var result = await _signInManager.PasswordSignInAsync(
+            //    model.Username, model.Password, model.RememberMe, false);
 
             SignedInUser = model.Username;
 
-            if (result.Succeeded)
-            {
-                if (!string.IsNullOrEmpty(model.ReturnUrl) &&
-                    Url.IsLocalUrl(model.ReturnUrl))
-                {
-                    return Redirect(model.ReturnUrl);
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-            }
+            //if (result.Succeeded)
+            //{
+            //    if (!string.IsNullOrEmpty(model.ReturnUrl) &&
+            //        Url.IsLocalUrl(model.ReturnUrl))
+            //    {
+            //        return Redirect(model.ReturnUrl);
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("Index", "Home");
+            //    }
+            //}
 
             ModelState.AddModelError("", "Login failed");
             return View(model);
