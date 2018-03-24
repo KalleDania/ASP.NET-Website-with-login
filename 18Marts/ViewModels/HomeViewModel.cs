@@ -12,6 +12,27 @@ namespace _18Marts.ViewModels
 {
     public class HomeViewModel
     {
+        private static AImage me;
+        public static AImage Me
+        {
+            get
+            {
+                if (me == null)
+                {
+                    foreach (var item in FileList)
+                    {
+                        if (item.FileName.Contains("Me"))
+                        {
+                            me = item;
+                            break;
+                        }
+                    }
+                }
+                return me;
+            }
+        }
+
+
         private string firstFileName;
         public string FirstFileName
         {
