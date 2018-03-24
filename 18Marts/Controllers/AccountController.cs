@@ -19,7 +19,7 @@ namespace _18Marts.Controllers
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
+            //_signInManager = signInManager;
         }
 
         [HttpGet]
