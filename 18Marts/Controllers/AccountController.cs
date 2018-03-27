@@ -6,57 +6,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _18Marts.CSClasses;
 
 namespace _18Marts.Controllers
 {
     public class AccountController : Controller
     {
-        private UserManager<User> _userManager;
-        //private SignInManager<User> _signInManager;
 
-        public static string SignedInUser;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController()
         {
-            _userManager = userManager;
-            //_signInManager = signInManager;
+
         }
 
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
-        {
-            if (!ModelState.IsValid) return View();
-
-            var user = new User { UserName = model.Username };
-
-            var result = await _userManager.CreateAsync(user, model.Password);
-
-            if (result.Succeeded)
-            {
-                //await _signInManager.SignInAsync(user, false);
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
-            }
-
-            return View();
-        }
 
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            //await _signInManager.SignOutAsync();
+            currentClearance = new Clearance { Name = "Guest", Password = "" };
             return RedirectToAction("Index", "Home");
         }
 
@@ -68,32 +35,69 @@ namespace _18Marts.Controllers
             //return RedirectToAction("Index");
         }
 
+
+        private static Clearance[] clearances = new Clearance[4]
+        {
+            new Clearance { Name = "Admin", Password = "AdminPassword321" },
+            new Clearance { Name = "Trusted", Password = "TrustedPassword321" },
+            new Clearance { Name = "Cleared", Password = "ClearedPassword" },
+            new Clearance { Name = "Guest", Password = "" },
+        };
+
+        public static Clearance currentClearance = new Clearance { Name = "Guest", Password = "" };
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            //var result = await _signInManager.PasswordSignInAsync(
-            //    model.Username, model.Password, model.RememberMe, false);
 
-            SignedInUser = model.Username;
+            for (int i = 0; i < clearances.Length; i++)
+            {
+                if (model.Username == clearances[i].Name)
+                {
+                    if (model.Password == clearances[i].Password)
+                    {
+                        currentClearance = clearances[i];
 
-            //if (result.Succeeded)
-            //{
-            //    if (!string.IsNullOrEmpty(model.ReturnUrl) &&
-            //        Url.IsLocalUrl(model.ReturnUrl))
-            //    {
-            //        return Redirect(model.ReturnUrl);
-            //    }
-            //    else
-            //    {
-            //        return RedirectToAction("Index", "Home");
-            //    }
-            //}
+                        if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                        {
+                            return Redirect(model.ReturnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+                }
+            }
 
-            ModelState.AddModelError("", "Login failed");
             return View(model);
-            //return RedirectToAction("Index");
+        }
+
+
+
+        public async Task<IActionResult> RequestAccess(ContactViewModel model)
+        {
+            if (model.InputAccessRequestMail != null && model.InputAccessRequestMail.Length > 0)
+            {
+                MailSender ms = new MailSender();
+                ms.SendAccessUpgradeRequest(model.InputAccessRequestWho, model.InputAccessRequestMail);
+            }
+
+            return RedirectToAction("Contact", "Home");
+        }
+
+        public async Task<IActionResult> Feedback(ContactViewModel model)
+        {
+            if (model.InputFeedback != null && model.InputFeedback.Length > 0)
+            {
+                string senderIp = "Sender IP: " + Request.HttpContext.Connection.RemoteIpAddress.ToString();
+                MailSender ms = new MailSender();
+                ms.SendFeedback(senderIp + " " + model.InputFeedback);
+            }
+
+          return RedirectToAction("Contact", "Home");
         }
     }
 }

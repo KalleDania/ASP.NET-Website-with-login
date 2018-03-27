@@ -4,17 +4,91 @@
     ViewBag.Title = "Contact";
 }
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnSubmitAccessRequest').click(function ()
+        {
+            $('#ConfirmationAlert').show('fade');
+
+            setTimeout(function () {
+                $('#ConfirmationAlert').hide('fade');
+            }, 2000);
+        });
+
+        $('#btnSubmitFeedback').click(function () {
+            $('#ConfirmationAlert').show('fade');
+
+            setTimeout(function () {
+                $('#ConfirmationAlert').hide('fade');
+            }, 2000);
+        });
+
+
+        $('#linkClose').click(function () {
+            $('#ConfirmationAlert').hide('fade');
+                });
+    });
+</script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+@*<button id="btnSubmit" class="btn btn-primary">submit</button>*@
+
+
+
+
+
 <div style="width: 60%; margin-left: 20%; margin-right: 20%; margin-bottom: 20%;">
     <br></br>
     <center>
         <h3>
             <b>Mail:</b> <a href="mailto:Kallenielsen87@live.dk">Kallenielsen87@live.dk</a><br />
             <b>Tlf:</b> <a>24250220</a><br />
-
-
+            <b>Linkedin:</b> <a href="http://www.linkedin.com/in/kasper-nielsen-1984b8107">www.linkedin.com/in/kasper-nielsen-1984b8107</a><br />
         </h3>
-        <h3>
-            <b> Linkedin:</b> <a href="http://www.linkedin.com/in/kasper-nielsen-1984b8107">www.linkedin.com/in/kasper-nielsen-1984b8107</a><br />
-</h3>
-</center>
+        <br>
+        <h3><font color="red">Temporary account useable until May 2018! <br /><b>Login:</b> Cleared <br /><b>Password:</b> ClearedPassword</font></h3>
+        <br>
+
+        <h2>Request access upgrade</h2>
+        <p>
+            An access upgrade will give you access to everything except "Private".
+            <br />If access is granted, you will recieve a new login and password by mail.
+        </p>
+
+        <form method="post" asp-controller="Account" asp-action="RequestAccess">
+
+            <label>Let me know who you are:</label>
+            <input asp-for="InputAccessRequestWho" />
+            <br />
+            <label>Your mail:</label>
+            <input asp-for="InputAccessRequestMail" />
+            <br />
+            <input id="btnSubmitAccessRequest" type="submit" value="Send request" class="navbar-btn btn btn-danger" />
+        </form>
+
+
+
+        <h2>Feedback</h2>
+        <form method="post" asp-controller="Account" asp-action="Feedback">
+
+            <p>
+                Give anonymous feedback on the website or its content, constructive criticism is allways appreciated!
+            </p>
+            <input asp-for="InputFeedback" />
+            <br />
+            <input id="btnSubmitFeedback" type="submit" value="Send feedback" class="navbar-btn btn btn-danger" />
+        </form>
+
+        <div id="ConfirmationAlert" class="alert alert-danger collapse">
+            <a id="linkClose" href="#" class="close" data-dismiss="alert"> &times;</a>
+            <strong>Message sent!</strong>
+        </div>
+
+
+    </center>
+
+
 </div>
+

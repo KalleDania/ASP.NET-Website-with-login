@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace _18Marts.Controllers
 {
-    [Authorize]  // login
+
     public class HomeController : Controller
     {
         // Der eksisterer åbenbart en naming convention der gør at mine metoder med params ikke virker hvis jeg kalder variablerne med _ først som jeg plejer. (deres param bliver sat til null)
@@ -21,7 +21,7 @@ namespace _18Marts.Controllers
             this.videos = videos;
         }
 
-        [AllowAnonymous]  // login
+
         public ViewResult Index()
         {
             return View();
@@ -101,41 +101,10 @@ namespace _18Marts.Controllers
             return View();
         }
 
-        // FJERN AALLOW ANON FRA LLE HERUNDER FOR AT FÅ LOGIN PÅ IGEN
-        [AllowAnonymous]
+
         public IActionResult CV()
         {
-            return View();
-        }
-
-        [AllowAnonymous]
-        public IActionResult Skills()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
-        public IActionResult MyWork()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
-        public IActionResult Grades()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
-        public IActionResult Future()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
-        public IActionResult Private()
-        {
-            if (AccountController.SignedInUser == "Admin")
+            if (AccountController.currentClearance.Name != "Guest")
             {
                 return View();
             }
@@ -145,32 +114,92 @@ namespace _18Marts.Controllers
             }
         }
 
-
-
-
-
-
-        //public HomeViewModel()
-        //{
-        //    //Thread t = new Thread(ImageCarouselLoop); husk og sluk tråden igen
-        //}
-
-        public ActionResult carousel() // bruges denne overhovedet? brug @functions til et eller andet
+        public IActionResult Skills()
         {
-            //while (true)
-            //{
-            //    foreach (var item in HomeViewModel.FileList)
-            //    {
-            //        if (item.FileName.Contains("private"))
-            //        {
-            //            UpdateImageCarousel("@item.FileName", "@item.AzureUrl");
-            //            Thread.Sleep(10000);
-            //        }
-            //    }
+            if (AccountController.currentClearance.Name != "Guest")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
 
+        public IActionResult MyWork()
+        {
+            if (AccountController.currentClearance.Name != "Guest")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        public IActionResult Grades()
+        {
+            if (AccountController.currentClearance.Name != "Guest")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+            public IActionResult Future()
+            {
+                if (AccountController.currentClearance.Name != "Guest")
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+            public IActionResult Private()
+            {
+                if (AccountController.currentClearance.Name == "Admin")
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+
+
+
+
+
+            //public HomeViewModel()
+            //{
+            //    //Thread t = new Thread(ImageCarouselLoop); husk og sluk tråden igen
             //}
 
-            return View(); /*SerializableAttribute den der csharp corner carousel guide*/
+            public ActionResult carousel() // bruges denne overhovedet? brug @functions til et eller andet
+            {
+                //while (true)
+                //{
+                //    foreach (var item in HomeViewModel.FileList)
+                //    {
+                //        if (item.FileName.Contains("private"))
+                //        {
+                //            UpdateImageCarousel("@item.FileName", "@item.AzureUrl");
+                //            Thread.Sleep(10000);
+                //        }
+                //    }
+
+                //}
+
+                return View(); /*SerializableAttribute den der csharp corner carousel guide*/
+            }
         }
     }
-}

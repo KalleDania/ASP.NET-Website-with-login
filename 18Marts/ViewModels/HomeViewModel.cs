@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace _18Marts.ViewModels
 {
     public class HomeViewModel
@@ -21,7 +22,7 @@ namespace _18Marts.ViewModels
                 {
                     foreach (var item in FileList)
                     {
-                        if (item.FileName.Contains("Me"))
+                        if (item.FileName.Contains("MeSortHvid"))
                         {
                             me = item;
                             break;
@@ -32,6 +33,8 @@ namespace _18Marts.ViewModels
             }
         }
 
+        public static int CurrentImageSize = 20;
+        public static int DefaultImageSize = 20;
 
         private string firstFileName;
         public string FirstFileName
@@ -154,6 +157,34 @@ namespace _18Marts.ViewModels
             }
             while (continuationToken != null);
 
+        }
+
+
+
+        public static DateTime currentTime = DateTime.Now;
+        public static DateTime NowTime = DateTime.Now;
+
+        public static string StartBackgroundThread
+        {
+            get
+            {
+                var backgroundTask = Task.Run(() => Update());
+
+                return null;
+            }
+        }
+
+
+        public static void Update()
+        {
+            while (true)
+            {
+                currentTime = DateTime.Now;
+                currentTime = DateTime.Now;
+
+                //opdatere tiden fra index
+                //    tjek klik&/ sizeof status på billedet
+            }
         }
 
     }

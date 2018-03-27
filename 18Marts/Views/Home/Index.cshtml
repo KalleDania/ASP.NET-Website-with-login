@@ -1,14 +1,24 @@
-﻿@using _18Marts.ViewModels 
+﻿@using _18Marts.ViewModels
 @model HomeViewModel
 @{
     ViewBag.Title = "Home";
 }
+
+
+
+
+@HomeViewModel.StartBackgroundThread
+
+@*<p currentTime>@HomeViewModel.currentTime</p>*@
+@*<label class="nowtime" asp-for=@HomeViewModel.NowTime></label>*@
+
+
+
 <center>
     <br /><br />
     <h1>
         Kasper Nielsen
     </h1>
-
 
     <h4>
         - Newly graduated software developer with an AP Degree in Computer Science as of 2018 January!
@@ -19,13 +29,25 @@
         </i>
     </p>
     <br />    <br />
-    <a target="_blank" href="@HomeViewModel.Me.AzureUrl"></a>
-    <img src="@HomeViewModel.Me.AzureUrl" alt="Image" style="width: 20%; height: 20%;" />
+
+    @*På billeder/logo, click to enlarge, og så snapper den tilbage når sluppet
+        Lav mit logo med klodser der kan tværes ud ala det fra Black and white logoet,
+        eller lav så det blir visket ud og langsomt kommer frem igen
+        eller skift det til et andet billede med tids interval
+        eller lav loading screen mellem scener/fade ind/ud
+        eller at teksten kommer ind fra højre, måske bare titlen for enkelte bogstaver evt andre retninger kom fra også
+        eller lavnoget med klodser til at skifte scener eller er det form eget?*@
+
+
+    <div clickableImage>
+        <a target="_blank" href="@HomeViewModel.Me.AzureUrl"></a>
+        <img src="@HomeViewModel.Me.AzureUrl" alt="Image" style="width: @HomeViewModel.CurrentImageSize%; height: @HomeViewModel.CurrentImageSize%;" />
+    </div>
 
 
 </center>
 
-<br />    <br />
+<br /><br />
 
 
 @*<p>"Family times are the best times!." </p>
@@ -95,8 +117,6 @@
             <span class="sr-only">Next</span>
         </a>
     </div>*@
-
-
 
 
 
@@ -183,7 +203,7 @@
             }
         }
         <p>
-            Canadian professor of Psychology aswell as clinical psychologist for more than 20 years. Jordan is very active on his youtube channel, where he has lectures about pretty much all aspects of life, generally teaching people how to become the best person we can possible be(from which i have learned alot!). He is an extremely intelligent man, and rather entertaining aswell which i suspect is not common for people with that kind of intellect. 
+            Canadian professor of Psychology aswell as clinical psychologist for more than 20 years. Jordan is very active on his youtube channel, where he has lectures about pretty much all aspects of life, generally teaching people how to become the best person we can possible be(from which i have learned alot!). He is an extremely intelligent man, and rather entertaining aswell which i suspect is not common for people with that kind of intellect.
         </p>
         <br />   <br />    <br />
     </div>

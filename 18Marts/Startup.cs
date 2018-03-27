@@ -21,6 +21,7 @@ using Microsoft.Extensions.DependencyInjection;
 using _18Marts.Entities;
 using _18Marts.Data;
 using _18Marts.Services;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace _18Marts
 {
@@ -80,10 +81,22 @@ namespace _18Marts
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
+
+            //Gem deres ip og send den med mailen så jeg kan tracke dem hvis abuse opstår.
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
+
             app.Run(async (context) =>
             {
                 //throw new Exception("Fake Exception!");
-                await context.Response.WriteAsync(_msg.GetMessage());
+                if (_msg.GetMessage() != null)
+                {
+                    await context.Response.WriteAsync(_msg.GetMessage());
+                }
+
             });
         }
     }
