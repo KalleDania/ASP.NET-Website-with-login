@@ -81,8 +81,16 @@ namespace _18Marts.Controllers
         {
             if (model.InputAccessRequestMail != null && model.InputAccessRequestMail.Length > 0)
             {
-                MailSender ms = new MailSender();
-                ms.SendAccessUpgradeRequest(model.InputAccessRequestWho, model.InputAccessRequestMail);
+                string senderIp = "Sender IP: " + Request.HttpContext.Connection.RemoteIpAddress.ToString();
+
+                if (MessageSenderLimiter.Instance.AllowSendMessage(senderIp, "RequestAccess"))
+                {
+                    MailSender ms = new MailSender();
+                    ms.SendAccessUpgradeRequest(model.InputAccessRequestWho, model.InputAccessRequestMail);
+
+                    SMSSender smss = new SMSSender();
+                    smss.SendSms("Request recieved: " + " " + model.InputAccessRequestMail + " " + model.InputFeedback);
+                }
             }
 
             return RedirectToAction("Contact", "Home");
@@ -93,11 +101,20 @@ namespace _18Marts.Controllers
             if (model.InputFeedback != null && model.InputFeedback.Length > 0)
             {
                 string senderIp = "Sender IP: " + Request.HttpContext.Connection.RemoteIpAddress.ToString();
-                MailSender ms = new MailSender();
-                ms.SendFeedback(senderIp + " " + model.InputFeedback);
+
+                if (MessageSenderLimiter.Instance.AllowSendMessage(senderIp, "Feedback"))
+                {
+                    MailSender ms = new MailSender();
+                    ms.SendFeedback(senderIp + " " + model.InputFeedback);
+
+                    SMSSender smss = new SMSSender();
+                    smss.SendSms("Feedback recieved: " + " " + model.InputFeedback);
+                }
             }
 
-          return RedirectToAction("Contact", "Home");
+            return RedirectToAction("Contact", "Home");
         }
+
+
     }
 }
