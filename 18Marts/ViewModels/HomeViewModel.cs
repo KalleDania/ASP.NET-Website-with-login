@@ -13,6 +13,29 @@ namespace _18Marts.ViewModels
 {
     public class HomeViewModel
     {
+        private static AImage meme;
+        public static AImage Meme
+        {
+            get
+            {
+                if (meme == null)
+                {
+
+                    foreach (var item in HomeViewModel.FileList)
+                    {
+                        if (item.FileName.Contains("TheElon"))
+                        {
+                            meme = item;
+                            break;
+                        }
+                    }
+                }
+                return me;
+            }
+        }
+
+
+
         private static AImage me;
         public static AImage Me
         {
@@ -161,31 +184,21 @@ namespace _18Marts.ViewModels
 
 
 
-        public static DateTime currentTime = DateTime.Now;
-        public static DateTime NowTime = DateTime.Now;
+        //public static DateTime currentTime = DateTime.Now;
+        //public static DateTime NowTime = DateTime.Now;
 
-        public static string StartBackgroundThread
-        {
-            get
-            {
-                var backgroundTask = Task.Run(() => Update());
+        //public static string StartBackgroundThread
+        //{
+        //    get
+        //    {
+        //        var backgroundTask = Task.Run(() => Update());
 
-                return null;
-            }
-        }
+        //        return null;
+        //    }
+        //}
 
 
-        public static void Update()
-        {
-            while (true)
-            {
-                currentTime = DateTime.Now;
-                currentTime = DateTime.Now;
 
-                //opdatere tiden fra index
-                //    tjek klik&/ sizeof status på billedet
-            }
-        }
 
     }
 }

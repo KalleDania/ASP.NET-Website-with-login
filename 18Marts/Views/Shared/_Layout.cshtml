@@ -6,42 +6,38 @@
     <title>@ViewBag.Title</title>
 
     <environment names="Development">
-        <link rel="stylesheet"
-              href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" />
+        @*<link rel="stylesheet"
+            href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
     </environment>
     <environment names="Staging,Production">
-        <link rel="stylesheet"
-              href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" />
     </environment>
 
 </head>
+<br />
 
-<body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-
-        <center>
-            <div style="font-size: xx-large">
-                <ul>
-                    <a asp-controller="Home" asp-action="Home" class="btn text-danger h1">Home</a>
-                    <a asp-controller="Home" asp-action="CV" class="btn text-danger h1 ">CV</a>
-                    <a asp-controller="Home" asp-action="Skills" class="btn text-danger h1">Skills</a>
-                    <a asp-controller="Home" asp-action="MyWork" class="btn text-danger h1">MyWork</a>
-                    <a asp-controller="Home" asp-action="Grades" class="btn text-danger h1">Grades & references</a>
-                    <a asp-controller="Home" asp-action="Future" class="btn text-danger h1">Future goal</a>
-                    <a asp-controller="Home" asp-action="Contact" class="btn text-danger h1">Contact</a>
-                    <a asp-controller="Home" asp-action="Private" class="btn text-danger h1">Private</a>
-                </ul>
-            </div>
-        </center>
+<body style="background-color: rgb(224, 225, 225);">
+    <center>
+        <div style="font-size: xx-large; background-color: rgb(0, 0, 0);">
+            <ul>
+                <a asp-controller="Home" asp-action="Home" class="btn text-danger h1" style="border: none;">Home</a>
+                <a asp-controller="Home" asp-action="Contact" class="btn text-danger h1" style="border: none;">Contact</a>
+                <a asp-controller="Home" asp-action="CV" class="btn text-danger h1 " style="border: none;">CV</a>
+                <a asp-controller="Home" asp-action="Skills" class="btn text-danger h1" style="border: none;">Skills</a>
+                <a asp-controller="Home" asp-action="MyWork" class="btn text-danger h1" style="border: none;">MyWork</a>
+                <a asp-controller="Home" asp-action="Grades" class="btn text-danger h1" style="border: none;">Grades & references</a>
+                <a asp-controller="Home" asp-action="Future" class="btn text-danger h1" style="border: none;">Future goal</a>
+                <a asp-controller="Home" asp-action="Private" class="btn text-danger h1" style="border: none;">Private</a>
+            </ul>
+        </div>
+    </center>
+    <nav>
+        @await Html.PartialAsync("_LoginLinks")
     </nav>
-    <br /><br /><br />
-                <nav>
-                    @await Html.PartialAsync("_LoginLinks") 
-                </nav>
 
 
-    <div>
+    <div class="text-danger" >
         @RenderBody()
     </div>
 

@@ -1,4 +1,5 @@
-﻿using _18Marts.Entities;
+﻿using _18Marts.CSClasses;
+using _18Marts.Entities;
 using _18Marts.Services;
 using _18Marts.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -150,56 +151,60 @@ namespace _18Marts.Controllers
             }
         }
 
-            public IActionResult Future()
+        public IActionResult Future()
+        {
+            if (AccountController.currentClearance.Name != "Guest")
             {
-                if (AccountController.currentClearance.Name != "Guest")
-                {
-                    return View();
-                }
-                else
-                {
-                    return RedirectToAction("Index");
-                }
+                return View();
             }
-
-            public IActionResult Private()
+            else
             {
-                if (AccountController.currentClearance.Name == "Admin")
-                {
-                    return View();
-                }
-                else
-                {
-                    return RedirectToAction("Index");
-                }
-            }
-
-
-
-
-
-
-            //public HomeViewModel()
-            //{
-            //    //Thread t = new Thread(ImageCarouselLoop); husk og sluk tråden igen
-            //}
-
-            public ActionResult carousel() // bruges denne overhovedet? brug @functions til et eller andet
-            {
-                //while (true)
-                //{
-                //    foreach (var item in HomeViewModel.FileList)
-                //    {
-                //        if (item.FileName.Contains("private"))
-                //        {
-                //            UpdateImageCarousel("@item.FileName", "@item.AzureUrl");
-                //            Thread.Sleep(10000);
-                //        }
-                //    }
-
-                //}
-
-                return View(); /*SerializableAttribute den der csharp corner carousel guide*/
+                return RedirectToAction("Index");
             }
         }
+
+        public IActionResult Private()
+        {
+            if (AccountController.currentClearance.Name == "Admin")
+            {
+
+                ViewBag.DropDown = PrivateViewModel.Instance.dropDownItemList;
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+
+
+
+
+
+
+        //public HomeViewModel()
+        //{
+        //    //Thread t = new Thread(ImageCarouselLoop); husk og sluk tråden igen
+        //}
+
+        public ActionResult carousel() // bruges denne overhovedet? brug @functions til et eller andet
+        {
+            //while (true)
+            //{
+            //    foreach (var item in HomeViewModel.FileList)
+            //    {
+            //        if (item.FileName.Contains("private"))
+            //        {
+            //            UpdateImageCarousel("@item.FileName", "@item.AzureUrl");
+            //            Thread.Sleep(10000);
+            //        }
+            //    }
+
+            //}
+
+            return View(); /*SerializableAttribute den der csharp corner carousel guide*/
+        }
     }
+}

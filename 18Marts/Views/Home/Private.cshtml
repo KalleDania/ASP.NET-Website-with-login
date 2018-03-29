@@ -4,5 +4,57 @@
     ViewBag.Title = "Private";
 }
 
-<h1> INSERT AWSOME Private HERE!</h1>
+<center>
 
+    <br />
+
+    <h1> INSERT AWSOME Private HERE!</h1>
+    @*1 er hvad der sorteres efter, 2 er hvad der vises*@
+    Vælg en item og få vist:
+    <select asp-for="ItemId" asp-items="@(new SelectList(@ViewBag.DropDown,"Category","Name"))"></select>
+
+    @*En dropdown hvor jeg kan vælge private version: syntax bibliotek, security videoer, feedback/acecs request oversigt.
+        Der skal kunne addes elementer via navn/string, et billede evt flere for patterns, og en beskrivelse*@
+
+    <br /><br /><br />
+
+    @foreach (var item in HomeViewModel.FileList)
+    {
+        if (item.FileName.Contains("TheElon"))
+        {
+            @*<img src="logo.png">*@
+            <a target="_blank" href="@item.AzureUrl"></a>
+            <img src="@item.AzureUrl" alt="Image" style="width: 20%; height: 20%;" />
+            break;
+        }
+    }
+
+    @if (PrivateViewModel.Instance.currentItem != null)
+    {
+        if (PrivateViewModel.Instance.currentItem.Description != null)
+        {
+            <p>PrivateViewModel.currentItem.Description</p>
+        }
+
+        if (PrivateViewModel.Instance.currentItem.ImageUrls != null)
+        {
+
+            <img src=@PrivateViewModel.Instance.currentItem.ImageUrls alt="Image" style="width: 20%; height: 20%;" />
+        }
+
+        if (PrivateViewModel.Instance.currentItem.VideoUrls != null)
+        {
+
+        }
+    }
+
+
+    <h1>Embedded Video Example</h1>
+    <p>The following video provides an introduction to WebMatrix:</p>
+    <iframe width="560"
+            height="315"
+            src="http://www.youtube.com/embed/fxCEcPxUbYA"
+            frameborder="0"
+            allowfullscreen></iframe>
+
+</center>
