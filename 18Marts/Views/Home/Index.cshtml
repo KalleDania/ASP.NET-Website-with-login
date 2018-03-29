@@ -24,7 +24,7 @@
 
 
 
-<br /> 
+<br />
 <div>
 
     <center>
@@ -118,16 +118,15 @@
         <br />
         <center>
             <h2>Elon Musk</h2>
-            @foreach (var item in HomeViewModel.FileList)
-            {
-                if (item.FileName.Contains("TheElon"))
-                {
-                    @*<img src="logo.png">*@
-                    <a target="_blank" href="@item.AzureUrl"></a>
-                    <img src="@item.AzureUrl" alt="Image" style="width: 20%; height: 20%;" />
-                    break;
-                }
-            }
+  
+            @*alternative link: https://iamkaspernielsenstorage.blob.core.windows.net/videos/VideoElonMusk.mp4*@
+            <iframe width="560"
+                    height="315"
+                    src="http://www.youtube.com/embed/XQnzk334PtA"
+                    frameborder="0"
+                    allowfullscreen></iframe>
+
+
         </center>
         <br />
         <p>
@@ -136,16 +135,14 @@
         <br />
         <center>
             <h2>Mikkel Kessler</h2>
-            @foreach (var item in HomeViewModel.FileList)
-            {
-                if (item.FileName.Contains("TheKessler"))
-                {
-                    @*<img src="logo.png">*@
-                    <a target="_blank" href="@item.AzureUrl"></a>
-                    <img src="@item.AzureUrl" alt="Image" style="width: 20%; height: 20%;" />
-                    break;
-                }
-            }
+
+            @*alternative link: https://iamkaspernielsenstorage.blob.core.windows.net/videos/VideoElonMusk.mp4*@
+            <iframe width="560"
+                    height="315"
+                    src="http://www.youtube.com/embed/mUSUMHgGi9Y"
+                    frameborder="0"
+                    allowfullscreen></iframe>
+
         </center>
         <p><i>Joe Calzaghe, Mikkels biggest opponent to date and Mikkel having a stare-off. These guys are great friends outside of the ring even to this day, despite having to brawl it out against eachother. Allegedly they enjoy meeting up for a match of table tennis when visiting eachothers countries, truely honorable guys!</i></p>
 
@@ -155,17 +152,14 @@
 
         <center>
             <h2>Jordan B Peterson</h2>
-            @foreach (var item in HomeViewModel.FileList)
-            {
-                if (item.FileName.Contains("ThePeterson"))
-                {
-                    @*<img src="logo.png">*@
-                    <a target="_blank" href="@item.AzureUrl"></a>
-                    <img src="@item.AzureUrl" alt="Image" style="width: 20%; height: 20%;" />
-                    break;
-                }
 
-            }
+            @*alternative link: https://iamkaspernielsenstorage.blob.core.windows.net/videos/VideoElonMusk.mp4*@
+            <iframe width="560"
+                    height="315"
+                    src="http://www.youtube.com/embed/dZrjrDLXSJA"
+                    frameborder="0"
+                    allowfullscreen></iframe>
+
         </center>
         <p>
             Canadian professor of Psychology aswell as clinical psychologist for more than 20 years. Jordan is very active on his youtube channel, where he has lectures about pretty much all aspects of life, generally teaching people how to become the best person we can possible be(from which i have learned alot!). He is an extremely intelligent man, and rather entertaining aswell which i suspect is not common for people with that kind of intellect.
@@ -174,4 +168,4 @@
     </div>
 
 
-    <br />   <br />  
+    <br />   <br />

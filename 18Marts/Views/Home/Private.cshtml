@@ -44,17 +44,43 @@
 
         if (PrivateViewModel.Instance.currentItem.VideoUrls != null)
         {
-
+            <p>PrivateViewModel.currentItem.VideoUrls</p>
         }
     }
 
+    0. youtube videoer p+ forsiden fra mikkel, jordan og elon hvor de siger sjove/klgoe ting
+    youtube video også for at vise jeg kan det med embed
 
-    <h1>Embedded Video Example</h1>
+    1. lav så description, billeder, og video skifter når man vælger fra drop down
+    2. Gør så man ka adde nye inkl billeder descrip videos
+
+
+    <h1>Embedded Video Example directly from youtube</h1>
     <p>The following video provides an introduction to WebMatrix:</p>
     <iframe width="560"
             height="315"
-            src="http://www.youtube.com/embed/fxCEcPxUbYA"
+            src="http://www.youtube.com/embed/F3EG4olrFjY"
             frameborder="0"
             allowfullscreen></iframe>
+
+
+
+    <p>The following video provides an introduction to WebMatrix:</p>
+    <iframe width="560"
+            height="315"
+            src="https://iamkaspernielsenstorage.blob.core.windows.net/videos/MikkelKessler.mp4"
+            frameborder="0"
+            allowfullscreen></iframe>
+
+    @foreach (var item in HomeViewModel.FileList)
+    {
+        if (item.FileName.Contains("TheElon"))
+        {
+            @*<img src="logo.png">*@
+            <a target="_blank" href="@item.AzureUrl"></a>
+            <img src="@item.AzureUrl" alt="Image" style="width: 40%; height: 40%;" />
+            break;
+        }
+    }
 
 </center>

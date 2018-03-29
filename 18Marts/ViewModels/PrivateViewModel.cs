@@ -38,7 +38,10 @@ namespace _18Marts.ViewModels
                  new APrivateDropDownItem { Category="Design pattern",Name= "Design pattern: " + "MVC"},
                  new APrivateDropDownItem { Category="Syntax",Name= "Syntax: " + "Delegate"},
                  new APrivateDropDownItem { Category="Syntax",Name= "Syntax: " + "Generic metode"},
-                 new APrivateDropDownItem { Category="Syntax",Name= "Syntax: " + "Lamda"}
+                 new APrivateDropDownItem { Category="Syntax",Name= "Syntax: " + "Lamda"},
+                 new APrivateDropDownItem { Category="Cyber security",Name= "Cyber security: " + "Phishing"},
+                 new APrivateDropDownItem { Category="Cyber security",Name= "Cyber security: " + "Encryptions"},
+                 new APrivateDropDownItem { Category="Cyber security",Name= "Cyber security: " + "Password Fetching USB"}
                  };
 
 
