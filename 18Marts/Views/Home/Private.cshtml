@@ -48,9 +48,8 @@
         }
     }
 
-    0. youtube videoer p+ forsiden fra mikkel, jordan og elon hvor de siger sjove/klgoe ting
-    youtube video også for at vise jeg kan det med embed
 
+    0. lav parallax baggrund
     1. lav så description, billeder, og video skifter når man vælger fra drop down
     2. Gør så man ka adde nye inkl billeder descrip videos
 
@@ -72,15 +71,15 @@
             frameborder="0"
             allowfullscreen></iframe>
 
-    @foreach (var item in HomeViewModel.FileList)
-    {
-        if (item.FileName.Contains("TheElon"))
-        {
-            @*<img src="logo.png">*@
-            <a target="_blank" href="@item.AzureUrl"></a>
-            <img src="@item.AzureUrl" alt="Image" style="width: 40%; height: 40%;" />
-            break;
-        }
-    }
+              @foreach (var item in HomeViewModel.FileList)
+            {
+                if (item.FileName.Contains("TheElon"))
+                {
+                    @*<img src="logo.png">*@
+                    <a target="_blank" href="@item.AzureUrl"></a>
+                    <img src="@item.AzureUrl" alt="Image" style="width: 40%; height: 40%;" />
+                    break;
+                }
+            }
 
 </center>
