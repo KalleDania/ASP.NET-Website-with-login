@@ -5,22 +5,31 @@
 }
 
 
+@*<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js">
+        function parallax5() {
+            var scrolled = $(window).scrollTop();
+            $('.background5').css('top', -(scrolled * 0.2) + 'px');
+        }
+        function parallax4() {
+            var scrolled = $(window).scrollTop();
+            $('.background4').css('top', -(scrolled * 0.4) + 'px');
+        }
 
+        $(window).scroll(function () {
+            parallax5();
+            parallax4();
+        });
+    </script>*@
 
-@*@HomeViewModel.StartBackgroundThread*@
-
-@*<p currentTime>@HomeViewModel.currentTime</p>*@
-@*<label class="nowtime" asp-for=@HomeViewModel.NowTime></label>*@
-
-
-@*<center>
-        <div>
-            <a target="_blank" href="@HomeViewModel.Me.AzureUrl"></a>
-            <img src="@HomeViewModel.Me.AzureUrl" alt="Image"
-                 style="width: @HomeViewModel.CurrentImageSize%; height: @HomeViewModel.CurrentImageSize%;" />
-        </div>
-    </center>*@
-
+@*Parrallax_ En værktøjskasse forrest: og så skal op af den komme c#, android logo, windows/microsfot logo, andre ting, eller er det på skills siden, eller samme på alle?*@
+@*<div class="background5" style="background: url('https://iamkaspernielsenstorage.blob.core.windows.net/myimages/bgkeyboard.png') repeat; position:fixed; width:100%; height:300%; top:0; left:0; z-index: -5"></div>
+    <div class="background4" style="background: url('https://iamkaspernielsenstorage.blob.core.windows.net/myimages/bgkeyboard.png');  repeat; position:fixed; width:20%; height:20%; top:110; left:110; z-index: -4"></div>
+     <div class="contents">
+             <p>
+                 Sample Image
+             </p>
+             <img src="https://iamkaspernielsenstorage.blob.core.windows.net/myimages/Me.jpg" style="width:10%; height:10%" />
+         </div>*@
 
 
 
@@ -38,7 +47,7 @@
         </h4>
         <p>
             <i>
-                (Mashed this website together start marts 2018 with technologies that are still new to me like ASP.NET CORE MVC, Razor pages, Bootstrap, AZURE and SQL, and its by no means finished or anything close, but for holding my information it will suffice for now)
+                (Mashed this website together start marts 2018 with technologies that are still new to me like ASP.NET CORE MVC, Razor pages, Javascript, Bootstrap, AZURE and SQL, and its by no means finished or anything close, but for holding my information it will suffice for now)
             </i>
         </p>
         <br />
@@ -46,14 +55,15 @@
 </div>
 
 
+<section id="home" data-type="background" data-speed="10" class="pages" style=" min-height:200px; margin: 0 auto; width:40%; max-width: 1920px; position:relative; -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);   box-shadow: 0 0 50px rgba(0,0,0,0.8);">
 
-<center>
-    <div>
-        <a target="_blank" href="@HomeViewModel.Me.AzureUrl"></a>
-        <img src="@HomeViewModel.Me.AzureUrl" alt="Image" style="width: @HomeViewModel.CurrentImageSize%; height: @HomeViewModel.CurrentImageSize%;" />
-    </div>
-</center>
-
+    <center style="padding:2%;">
+        <div>
+            <a target="_blank" href="@HomeViewModel.Me.AzureUrl"></a>
+            <img src="@HomeViewModel.Me.AzureUrl" alt="Image" style="width: 98%; height: 98%;" />
+        </div>
+    </center>
+</section>
 <br />    <br />
 
 
@@ -118,7 +128,7 @@
         <br />
         <center>
             <h2>Elon Musk</h2>
-  
+
             @*alternative link: https://iamkaspernielsenstorage.blob.core.windows.net/videos/VideoElonMusk.mp4*@
             <iframe width="560"
                     height="315"
