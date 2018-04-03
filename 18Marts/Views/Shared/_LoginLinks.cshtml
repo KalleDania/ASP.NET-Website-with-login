@@ -1,28 +1,27 @@
 ﻿
-
-    <div class="text-dark">
+    <div class="text-dark" style="margin-top:-50px; margin-left:5px; margin-top:4%; position:fixed; z-index:10;">
 
 
         @if (AccountController.currentClearance.Name != "Guest")
         {
             // Signed in
-            <form method="post" asp-controller="Account" asp-action="Logout">
-                <input type="submit" value="Logout" class="navbar-btn btn btn-danger" />
+        <form method="post" asp-controller="Account" asp-action="Logout">
+            <input type="submit" value="Logout" class="navbar-btn btn btn-danger" />
+          
+            @*<div style="color:white; display:inline; z-index:-10;">
                 @AccountController.currentClearance.Name
-            </form>
+            </div>*@
+        </form>
         }
 
         else
         {
             // Not singed in
-            <form method="post" asp-controller="Account" asp-action="Login">
-                <input type="submit" value="Login" class="navbar-btn btn btn-danger" />
-                @AccountController.currentClearance.Name
-            </form>
+        <form method="post" asp-controller="Account" asp-action="Login">
+            <input type="submit" value="Login" class="navbar-btn btn btn-success" />   
+        </form>
 
         }
-
-        <p><i><b> Hint:</b> If you want access to specific content that you currently cant access, try request higher clearance on the "Contact" page!</i></p>
 
     </div>
 

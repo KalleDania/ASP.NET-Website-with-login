@@ -103,29 +103,6 @@ namespace _18Marts.Controllers
         }
 
 
-        public IActionResult CV()
-        {
-            if (AccountController.currentClearance.Name != "Guest")
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
-        }
-
-        public IActionResult Skills()
-        {
-            if (AccountController.currentClearance.Name != "Guest")
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
-        }
 
         public IActionResult MyWork()
         {
@@ -135,7 +112,7 @@ namespace _18Marts.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Account");
             }
         }
 
@@ -147,7 +124,7 @@ namespace _18Marts.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Account");
             }
         }
 
@@ -159,7 +136,7 @@ namespace _18Marts.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Account");
             }
         }
 
@@ -174,7 +151,7 @@ namespace _18Marts.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Account");
             }
         }
 

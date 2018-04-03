@@ -11,54 +11,33 @@
             href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
     </environment>
     <environment names="Staging,Production">
-        <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" />
     </environment>
 
 </head>
-<br />
 
 
-<body style="background-color: rgb(224, 225, 225);">
+<body style="background: url('https://iamkaspernielsenstorage.blob.core.windows.net/myimages/whbgOriginal.jpg') 50% repeat fixed; width:100%;">
     <center>
-        <div style="font-size: xx-large; background-color: rgb(0, 0, 0);">
+        <div id="menu" style="position:fixed; z-index:10; font-size: xx-large; background-color: rgb(0, 0, 0); width:100%;">
             <ul>
-                <a asp-controller="Home" asp-action="Home" class="btn text-danger h1" style="border: none;">Home</a>
-                <a asp-controller="Home" asp-action="Contact" class="btn text-danger h1" style="border: none;">Contact</a>
-                <a asp-controller="Home" asp-action="CV" class="btn text-danger h1 " style="border: none;">CV</a>
-                <a asp-controller="Home" asp-action="Skills" class="btn text-danger h1" style="border: none;">Skills</a>
-                <a asp-controller="Home" asp-action="MyWork" class="btn text-danger h1" style="border: none;">MyWork</a>
-                <a asp-controller="Home" asp-action="Grades" class="btn text-danger h1" style="border: none;">Grades & references</a>
-                <a asp-controller="Home" asp-action="Future" class="btn text-danger h1" style="border: none;">Future goal</a>
-                <a asp-controller="Home" asp-action="Private" class="btn text-danger h1" style="border: none;">Private</a>
+                <a asp-controller="Home" asp-action="Home" class="navbar-btn" style=" padding-left:2%; padding-right:2%; color:white; border: none; font-size:15px;">HOME</a>
+                <a asp-controller="Home" asp-action="Contact" class="navbar-btn" style=" padding-left:2%; padding-right:2%; color:white; border: none;font-size:15px">CONTACT</a>
+                <a asp-controller="Home" asp-action="MyWork" class="navbar-btn" style=" padding-left:2%; padding-right:2%; color:white; border: none;font-size:15px">MYWORK</a>
+                <a asp-controller="Home" asp-action="Grades" class="navbar-btn" style=" padding-left:2%; padding-right:2%; color:white; border: none;font-size:15px">GRADES & REFERENCES</a>
+                <a asp-controller="Home" asp-action="Future" class="navbar-btn" style=" padding-left:2%; padding-right:2%; color:white; border: none;font-size:15px">FUTURE GOAL</a>
+                <a asp-controller="Home" asp-action="Private" class="navbar-btn" style=" padding-left:2%; padding-right:2%; color:white; border: none;font-size:15px">PRIVATE</a>
             </ul>
         </div>
+
     </center>
+
+
+    <br /><br />
+
     <nav>
         @await Html.PartialAsync("_LoginLinks")
     </nav>
-
-
-
-    @*aasddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    <section id="home" data-type="background" data-speed="10" class="pages" style="background: url('https://iamkaspernielsenstorage.blob.core.windows.net/myimages/parallax_alpha_android.png') 50% 0; min-height:200px; margin: 0 auto; width:40%; max-width: 1920px; position:relative; -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);   box-shadow: 0 0 50px rgba(0,0,0,0.8);">
-        <article style="height:458px; position: absolute; text-align:center; top:150px; width:100%;">I am absolute positioned</article>
-    </section>
-    <br />
-    <section id="about" data-type="background" data-speed="10" class="pages" style="background: url('https://iamkaspernielsenstorage.blob.core.windows.net/myimages/parallax_cs.png') 50% 0 repeat fixed; min-height:200px; margin: 0 auto; width:50%; max-width: 1920px; position:relative; -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);   box-shadow: 0 0 50px rgba(0,0,0,0.8);">
-        <article style="height:458px; position: absolute; text-align:center; top:150px; width:100%;">Simple Parallax Scroll</article>
-    </section>
-    <br />
-    <section id="about" data-type="background" data-speed="10" class="pages" style="background: url('https://iamkaspernielsenstorage.blob.core.windows.net/myimages/parallax_unity.png') 50% 0 repeat fixed; min-height:200px; margin: 0 auto; width:100%; max-width: 1920px; position:relative; -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);   box-shadow: 0 0 50px rgba(0,0,0,0.8);">
-        <article style="height:458px; position: absolute; text-align:center; top:150px; width:100%;">Simple Parallax Scroll</article>
-    </section>*@
-
-    @*https://iamkaspernielsenstorage.blob.core.windows.net/myimages/parallax_android.jpg
-        https://iamkaspernielsenstorage.blob.core.windows.net/myimages/parallax_cs.png
-        https://iamkaspernielsenstorage.blob.core.windows.net/myimages/parallax_unity.png*@
-
-    @*aasddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*@
-
-
 
 
     <div class="text-dark">

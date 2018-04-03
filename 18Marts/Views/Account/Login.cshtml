@@ -3,27 +3,30 @@
     ViewBag.Title = "Login";
 }
 
-<div style=" margin-top: 20%; margin-left: 20%; margin-right: 20%;">
-    <h2>Login</h2>
-    <form method="post" asp-controller="Account" asp-action="Login" asp-route-returnurl="@Model.ReturnUrl">
-        <div asp-validation-summary="ModelOnly"></div>
-        <div>
-            <label asp-for="Username"></label>
-            <input asp-for="Username" />
-            <span asp-validation-for="Username"></span>
-        </div>
-        <div>
-            <label asp-for="Password"></label>
-            <input asp-for="Password" />
-            <span asp-validation-for="Password"></span>
-        </div>
-        <div>
-            <label asp-for="RememberMe"></label>
-            <input asp-for="RememberMe" />
-            <span asp-validation-for="RememberMe"></span>
-        </div>
-        <div>
-            <input type="submit" value="Login" />
-        </div>
-    </form>
-</div>
+<section style="padding:2%; border-radius: 50px; margin:20%; margin-top:10%; background: url('https://iamkaspernielsenstorage.blob.core.windows.net/myimages//whitegrayplainbackground.png') 50% 0 repeat fixed; opacity: 0.9;filter: alpha(opacity=255); min-height:100px; position:relative; -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);   box-shadow: 0 0 50px rgba(0,0,0,0.8);">
+    <center>
+            <h2>Login</h2>
+            <p style="color: black; margin-top:5%;"><i><b>  Hint:</b> If you want access to specific content that you currently cant access, try request higher clearance login on the "Contact" page!</i></p>
+            <form method="post" asp-controller="Account" asp-action="Login" asp-route-returnurl="@Model.ReturnUrl">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div>
+                    <label asp-for="Username"></label>
+                    <input asp-for="Username" />
+                    <span asp-validation-for="Username"></span>
+                </div>
+                <div>
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div>
+                    <label asp-for="RememberMe"></label>
+                    <input asp-for="RememberMe" />
+                    <span asp-validation-for="RememberMe"></span>
+                </div>
+                <div>
+                    <input type="submit" value="Login" />
+                </div>
+            </form>
+        </center>
+    </section>
