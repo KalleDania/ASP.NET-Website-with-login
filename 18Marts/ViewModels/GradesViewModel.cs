@@ -31,6 +31,26 @@ namespace _18Marts.ViewModels
                 return grades;
             }
         }
+
+        private static AImage references;
+        public static AImage References
+        {
+            get
+            {
+                if (references == null)
+                {
+                    foreach (var item in FileList)
+                    {
+                        if (item.FileName.Contains("References"))
+                        {
+                            references = item;
+                            break;
+                        }
+                    }
+                }
+                return references;
+            }
+        }
         //private string gradesAzureUrl;
         //public string GradesAzureUrl
         //{

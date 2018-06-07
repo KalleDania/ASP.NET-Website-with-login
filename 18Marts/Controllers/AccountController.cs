@@ -16,9 +16,7 @@ namespace _18Marts.Controllers
 
         public AccountController()
         {
-
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Logout()
@@ -32,7 +30,6 @@ namespace _18Marts.Controllers
         {
             var model = new LoginViewModel { ReturnUrl = returnUrl };
             return View(model);
-            //return RedirectToAction("Index");
         }
 
 
@@ -50,7 +47,6 @@ namespace _18Marts.Controllers
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
-
 
             for (int i = 0; i < clearances.Length; i++)
             {
@@ -71,10 +67,8 @@ namespace _18Marts.Controllers
                     }
                 }
             }
-
             return View(model);
         }
-
 
 
         public async Task<IActionResult> RequestAccess(ContactViewModel model)
@@ -114,7 +108,5 @@ namespace _18Marts.Controllers
 
             return RedirectToAction("Contact", "Home");
         }
-
-
     }
 }

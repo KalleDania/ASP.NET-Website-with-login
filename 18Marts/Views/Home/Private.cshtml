@@ -71,15 +71,30 @@
             frameborder="0"
             allowfullscreen></iframe>
 
-              @foreach (var item in HomeViewModel.FileList)
-            {
-                if (item.FileName.Contains("TheElon"))
-                {
-                    @*<img src="logo.png">*@
-                    <a target="_blank" href="@item.AzureUrl"></a>
-                    <img src="@item.AzureUrl" alt="Image" style="width: 40%; height: 40%;" />
-                    break;
-                }
-            }
+    @foreach (var item in HomeViewModel.FileList)
+    {
+        if (item.FileName.Contains("TheElon"))
+        {
+            @*<img src="logo.png">*@
+            <a target="_blank" href="@item.AzureUrl"></a>
+            <img src="@item.AzureUrl" alt="Image" style="width: 40%; height: 40%;" />
+            break;
+        }
+    }
 
 </center>
+
+<br /><br /><br /><br /><br /><br /><br />
+
+<div id="Little Green Helper tilbud:">
+    <center>
+        <h1>Fødevarer</h1>
+        <h1>Tøj og tekstiler</h1>
+        <h1>Makeup og andre kemikalier</h1>
+        <h1>Mad</h1>
+    </center>
+</div>
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
