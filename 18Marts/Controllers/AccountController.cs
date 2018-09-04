@@ -33,15 +33,16 @@ namespace _18Marts.Controllers
         }
 
 
-        private static Clearance[] clearances = new Clearance[4]
+        private static Clearance[] clearances = new Clearance[3]
         {
             new Clearance { Name = "Admin", Password = "AdminPassword321" },
             new Clearance { Name = "Trusted", Password = "TrustedPassword321" },
-            new Clearance { Name = "Cleared", Password = "ClearedPassword" },
-            new Clearance { Name = "Guest", Password = "" },
+            new Clearance { Name = "Guest", Password = "" }, // User is not allowed to have empty password, so this cant be used by accident.
         };
 
         public static Clearance currentClearance = new Clearance { Name = "Guest", Password = "" };
+
+        public static string tryingToAccesRestrictedPage = "";
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -62,7 +63,7 @@ namespace _18Marts.Controllers
                         }
                         else
                         {
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction(tryingToAccesRestrictedPage, "Home");
                         }
                     }
                 }

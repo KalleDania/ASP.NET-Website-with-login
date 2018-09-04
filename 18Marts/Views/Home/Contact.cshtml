@@ -34,31 +34,17 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
 
-<div style="width: 80%; margin-left: 10%; margin-right: 10%; margin-bottom: 20%;">
+<section style="padding:2%; border-radius: 50px; margin:20%; margin-top:10%; background: url('https://iamkaspernielsenstorage.blob.core.windows.net/myimages//whitegrayplainbackground.png') 50% 0 repeat fixed; opacity: 0.9;filter: alpha(opacity=255); min-height:100px; position:relative; -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);   box-shadow: 0 0 50px rgba(0,0,0,0.8);">
+
     <br></br>
     <center>
-        <h3>
-            <b>Mail:</b>
-            <a href="mailto:Kallenielsen87@live.dk">
-                <font color="white">
-                    <u>Kallenielsen87@live.dk</u>
-                </font>
-            </a>
-            <br />    <br />
-            <b>Linkedin:</b> <a href="http://www.linkedin.com/in/kasper-nielsen-1984b8107">     <font color="white"><u>www.linkedin.com/in/kasper-nielsen-1984b8107</u>        </font></a><br />
-            <br />
-            <b>Tlf:</b> <a>24250220</a><br />
-        </h3>
-        <br>
-        <h3><font color="red"><b>Temporary account useable until May 2018! <br />Login:</b> Cleared <br /><b>Password:</b> ClearedPassword</font></h3>
-        <br>
-
-        <h2>Request access upgrade</h2>
+        <font color="red">
+            <h2>Request access upgrade</h2>
+        </font>
         <p>
-            An access upgrade will give you access to everything except "Private".
+            An access upgrade will give you access to locked pages.
             <br />If access is granted, you will recieve a new login and password by mail.
         </p>
-
         <form method="post" asp-controller="Account" asp-action="RequestAccess">
 
             <label>Let me know who you are:</label>
@@ -70,8 +56,11 @@
             <input id="btnSubmitAccessRequest" type="submit" value="Send request" class="navbar-btn btn btn-danger" />
         </form>
 
-
-        <h2>Feedback</h2>
+        <h3>
+            <font color="red">
+              Send Kasper a message
+            </font>
+        </h3>
         <form method="post" asp-controller="Account" asp-action="Feedback">
 
             <p>
@@ -87,5 +76,5 @@
             <strong>Message sent!</strong>
         </div>
     </center>
-</div>
-
+    </div>
+</section>

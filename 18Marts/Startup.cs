@@ -19,7 +19,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using _18Marts.Entities;
-using _18Marts.Data;
 using _18Marts.Services;
 using Microsoft.AspNetCore.HttpOverrides;
 
@@ -49,16 +48,12 @@ namespace _18Marts
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<VideoDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddMvc();
 
             services.AddSingleton(provider => Configuration);
             services.AddSingleton<IMessageService, ConfigurationMessageService>();
-            //services.AddSingleton<IVideoData, SqlVideoData>(); Denne her skulle vi egentligt bruge istedet for den under, men får en fejl når jeg gør det. Kigger på det senere. Evt tag en klasse af gangen her fra og pårøv og replace med disse https://github.com/csharpschool/AspNetCoreVideoCore/tree/master/AspNetCoreVideoCore
-            services.AddSingleton<IVideoData, MockVideoData>();
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<VideoDbContext>();  // login
-        }
+  }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IMessageService _msg)

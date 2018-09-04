@@ -32,7 +32,7 @@ namespace _18Marts.ViewModels
             }
         }
 
-        private static AImage references;
+        private static AImage references; //%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
         public static AImage References
         {
             get

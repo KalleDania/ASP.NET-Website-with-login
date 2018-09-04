@@ -48,3 +48,4 @@ namespace _18Marts.ViewModels
         public APrivateDropDownItem currentItem;
     }
 }
+
