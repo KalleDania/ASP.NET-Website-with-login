@@ -76,9 +76,9 @@ namespace _18Marts.Controllers
         {
             if (model.InputAccessRequestMail != null && model.InputAccessRequestMail.Length > 0)
             {
-                string senderIp = "Sender IP: " + Request.HttpContext.Connection.RemoteIpAddress.ToString();
+                //string senderIp = "Sender IP: " + Request.HttpContext.Connection.RemoteIpAddress.ToString();
 
-                if (MessageSenderLimiter.Instance.AllowSendMessage(senderIp, "RequestAccess"))
+                if (MessageSenderLimiter.Instance.AllowSendMessage(/*senderIp*/"", "RequestAccess"))
                 {
                     MailSender ms = new MailSender();
                     ms.SendAccessUpgradeRequest(model.InputAccessRequestWho, model.InputAccessRequestMail);
@@ -95,12 +95,12 @@ namespace _18Marts.Controllers
         {
             if (model.InputFeedback != null && model.InputFeedback.Length > 0)
             {
-                string senderIp = "Sender IP: " + Request.HttpContext.Connection.RemoteIpAddress.ToString();
+                //string senderIp = "Sender IP: " + Request.HttpContext.Connection.RemoteIpAddress.ToString();
 
-                if (MessageSenderLimiter.Instance.AllowSendMessage(senderIp, "Feedback"))
+                if (MessageSenderLimiter.Instance.AllowSendMessage(/*senderIp*/"", "Feedback"))
                 {
                     MailSender ms = new MailSender();
-                    ms.SendFeedback(senderIp + " " + model.InputFeedback);
+                    ms.SendFeedback(/*senderIp + */" " + model.InputFeedback);
 
                     SMSSender smss = new SMSSender();
                     smss.SendSms("Feedback recieved: " + " " + model.InputFeedback);
