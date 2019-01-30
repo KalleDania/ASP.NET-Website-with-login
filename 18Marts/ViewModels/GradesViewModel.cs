@@ -81,7 +81,7 @@ namespace _18Marts.ViewModels
         {
 
             // Parse the connection string and return a reference to the storage account.
-            CloudStorageAccount storageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=iamkaspernielsenstorage;AccountKey=zcIvxM7HfrOMhDFnXTzLOUEwztBVPgTUuMrzMRfUgQ1L53Hka2Ye4f6YCwvpFYJqaurUbl4HoOXhS1njlWZw0A==");
+            CloudStorageAccount storageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse("account info here");
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
             /// Creates if doesnt exist
@@ -121,7 +121,7 @@ namespace _18Marts.ViewModels
                 {
                     Debug.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
 
-                    StringBuilder sb = new StringBuilder().Append(blobItem.StorageUri.PrimaryUri.ToString()).Replace("https://iamkaspernielsenstorage.blob.core.windows.net/myimages/", "");
+                    StringBuilder sb = new StringBuilder().Append(blobItem.StorageUri.PrimaryUri.ToString()).Replace("asset url here", "");
                     string itemName = sb.ToString();
                     string azureUrl = blobItem.StorageUri.PrimaryUri.ToString();
 
