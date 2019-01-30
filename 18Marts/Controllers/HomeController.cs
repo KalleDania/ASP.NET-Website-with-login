@@ -14,8 +14,6 @@ namespace _18Marts.Controllers
 
     public class HomeController : Controller
     {
-        // Der eksisterer åbenbart en naming convention der gør at mine metoder med params ikke virker hvis jeg kalder variablerne med _ først som jeg plejer. (deres param bliver sat til null)
-
 
         public HomeController()
         {

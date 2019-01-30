@@ -14,15 +14,15 @@ namespace _18Marts.CSClasses
         public async Task SendSms(string _content)
         {
             // Your Account SID from twilio.com/console
-            var accountSid = "AC859f6c06e103c5653031788712442049";
+            var accountSid = "Ur twilio account id here";
             // Your Auth Token from twilio.com/console
-            var authToken = "123b3131e421fd67acfa68ea0532d87d";
+            var authToken = "Ur twilio auth token here";
 
             TwilioClient.Init(accountSid, authToken);
 
             var message = await MessageResource.CreateAsync(
-                to: new PhoneNumber("+4524250220"),
-                from: new PhoneNumber("+4759446477"),
+                to: new PhoneNumber("The number you want the messages sent to here"),
+                from: new PhoneNumber("Ur twilio number here"),
                 body: _content);
         }
     }

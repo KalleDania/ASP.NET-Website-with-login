@@ -32,7 +32,7 @@ namespace _18Marts.ViewModels
             }
         }
 
-        private static AImage references; //%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+        private static AImage references; 
         public static AImage References
         {
             get
@@ -51,18 +51,7 @@ namespace _18Marts.ViewModels
                 return references;
             }
         }
-        //private string gradesAzureUrl;
-        //public string GradesAzureUrl
-        //{
-        //    get
-        //    {
-        //        if (gradesAzureUrl == null)
-        //        {
-        //            gradesAzureUrl = FileList[0].AzureUrl;
-        //        };
-        //        return gradesAzureUrl;
-        //    }
-        //}
+     
 
         private static List<AImage> fileList;
         public static List<AImage> FileList
@@ -72,7 +61,6 @@ namespace _18Marts.ViewModels
                 if (fileList == null)
                 {
                     fileList = new List<AImage>();
-                    //fileList.Add(new AImage("test name", "test url"));
 
                     //https://social.msdn.microsoft.com/Forums/en-US/590b9b59-4130-45cf-850b-39f38e9c063c/executing-code-only-after-async-method-is-completed?forum=winappswithcsharp
                     MainAsync();
@@ -100,16 +88,7 @@ namespace _18Marts.ViewModels
             // Retrieve a reference to a container.
             CloudBlobContainer container = blobClient.GetContainerReference("myimages");
 
-
-
-            //if (await container.ExistsAsync())
-            //{
-            /*    await*/
             ListBlobsSegmentedInFlatListing(container);
-            //}
-
-            //else
-
 
 
             Debug.WriteLine($"Your container with the name:{"myimages"} does not exist!!!");
@@ -137,7 +116,6 @@ namespace _18Marts.ViewModels
                 resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
 
                 if (resultSegment.Results.Count<IListBlobItem>() > 0) { Debug.WriteLine("Page {0}:", ++i); }
-                //fileList[0] = new AImage("new test name", " færdig nået new test url");
 
                 foreach (var blobItem in resultSegment.Results)
                 {

@@ -46,17 +46,7 @@ namespace _18Marts.Controllers
             CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
 
-            //if (await container.ExistsAsync())
-            //{
-            /*    await*/
             ListBlobsSegmentedInFlatListing(container, containerName);
-            //}
-
-            //else
-            //Console.WriteLine($"Your container with the name:{"myimages"} does not exist!!!");
-
-            //Console.WriteLine("press any key to exit...");
-            //Console.ReadLine();
         }
 
         async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container, string _containerName)
@@ -85,7 +75,7 @@ namespace _18Marts.Controllers
 
                     // Get clean itemname.
                     StringBuilder itemName = new StringBuilder();
-                    itemName.Append(blobItem.StorageUri.PrimaryUri.ToString().Replace("https://iamkaspernielsenstorage.blob.core.windows.net/" + _containerName, ""));
+                    itemName.Append(blobItem.StorageUri.PrimaryUri.ToString().Replace("BLOB CONTAINER URL LINK HERE" + _containerName, ""));
                     string itemAzureUrl = blobItem.StorageUri.PrimaryUri.ToString();
                     fileList.Add(new AImage(itemName.ToString(), itemAzureUrl));
                 }

@@ -38,18 +38,7 @@ namespace _18Marts.CSClasses
         // Retrieve a reference to a container.
         CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
-
-        //if (await container.ExistsAsync())
-        //{
-        /*    await*/
         ListBlobsSegmentedInFlatListing(container, containerName);
-        //}
-
-        //else
-        //Console.WriteLine($"Your container with the name:{"myimages"} does not exist!!!");
-
-        //Console.WriteLine("press any key to exit...");
-        //Console.ReadLine();
     }
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container, string _containerName)

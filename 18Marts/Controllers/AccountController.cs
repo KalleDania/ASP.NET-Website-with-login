@@ -35,9 +35,10 @@ namespace _18Marts.Controllers
 
         private static Clearance[] clearances = new Clearance[3]
         {
-            new Clearance { Name = "Admin", Password = "AdminPassword321" },
-            new Clearance { Name = "Trusted", Password = "TrustedPassword321" },
-            new Clearance { Name = "Guest", Password = "" }, // User is not allowed to have empty password, so this cant be used by accident.
+            // Add passwords here as you like.
+            new Clearance { Name = "Admin", Password = "" },
+            new Clearance { Name = "Trusted", Password = "" },
+            new Clearance { Name = "Guest", Password = "" }, 
         };
 
         public static Clearance currentClearance = new Clearance { Name = "Guest", Password = "" };
@@ -76,7 +77,6 @@ namespace _18Marts.Controllers
         {
             if (model.InputAccessRequestMail != null && model.InputAccessRequestMail.Length > 0)
             {
-                //string senderIp = "Sender IP: " + Request.HttpContext.Connection.RemoteIpAddress.ToString();
 
                 if (MessageSenderLimiter.Instance.AllowSendMessage(/*senderIp*/"", "RequestAccess"))
                 {
@@ -95,7 +95,6 @@ namespace _18Marts.Controllers
         {
             if (model.InputFeedback != null && model.InputFeedback.Length > 0)
             {
-                //string senderIp = "Sender IP: " + Request.HttpContext.Connection.RemoteIpAddress.ToString();
 
                 if (MessageSenderLimiter.Instance.AllowSendMessage(/*senderIp*/"", "Feedback"))
                 {

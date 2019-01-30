@@ -94,8 +94,7 @@ namespace _18Marts.CSClasses
                 return true;
             }
 
-            // Burde ikke være reachable, men skal være her ifølge syntax reglerne. Hellere lade en besked for meget end en for lidt slippe igennem.
-            return true;
+                return true;
         }
     }
 }

@@ -30,16 +30,16 @@ namespace _18Marts.CSClasses
             // https://myaccount.google.com/lesssecureapps are turned off byb default but must be turned on for a 3rd party app to use the mail.
 
 
-            MailMessage mail = new MailMessage("bittybotsen@gmail.com", "kallenielsen87@live.dk");
-            mail.Subject = "www.iamkaspernielsen.com " + _subject;
+            MailMessage mail = new MailMessage("Ur sender mail here", "Ur receiver mail here");
+            mail.Subject = "Some subject: " + _subject;
             mail.Body = _content;
 
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
 
             smtpClient.Credentials = new System.Net.NetworkCredential()
             {
-                UserName = "bittybotsen@gmail.com",
-                Password = "9c5TR!EX"
+                UserName = "ur mail here",
+                Password = "ur pw for that mail"
             };
 
             smtpClient.EnableSsl = true;
